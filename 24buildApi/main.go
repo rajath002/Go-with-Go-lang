@@ -35,10 +35,35 @@ func (c *Course) IsEmpty() bool {
 }
 
 func main() {
-
+	fmt.Println("API - APPLICATION")
 	r := mux.NewRouter()
-	r.HandleFunc("/", createOneCourse).Methods("POST")
-	// r.HandleFunc("/", updateOneCourse).Methods("PUT")
+
+	// Seeding
+	courses = append(courses, Course{
+		CourseId:    "3",
+		CourseName:  "ReactJS",
+		CoursePrice: 999,
+		Author: &Author{
+			Fullname: "Rajath",
+			Website:  "rajath002.github.io",
+		},
+	})
+	courses = append(courses, Course{
+		CourseId:    "5",
+		CourseName:  "NodeJS",
+		CoursePrice: 950,
+		Author: &Author{
+			Fullname: "Rajath Kumar",
+			Website:  "rajath002.github.io",
+		},
+	})
+
+	r.HandleFunc("/", serveHome).Methods("GET")
+	r.HandleFunc("/courses", getAllCourses).Methods("GET")
+	r.HandleFunc("/courses/{id}", getOneCourse).Methods("GET")
+	r.HandleFunc("/courses", createOneCourse).Methods("POST")
+	r.HandleFunc("/courses/{id}", updateOneCourse).Methods("PUT")
+	r.HandleFunc("/courses/{id}", deleteOneCourse).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":4000", r))
 }
@@ -96,6 +121,9 @@ func createOneCourse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// TODO check only if title is duplicate
+	// loop, title matches with course.coursename, JSON
+
 	// Generate unique ID
 	// Append course into courses
 	rand.Seed(time.Now().UnixNano())
@@ -141,9 +169,9 @@ func deleteOneCourse(w http.ResponseWriter, r *http.Request) {
 	for index, course := range courses {
 		if course.CourseId == params["id"] {
 			courses = append(courses[:index], courses[index+1:]...)
-			break
+			json.NewEncoder(w).Encode("Course deleted successfully!")
+			return
 		}
 	}
-
-	json.NewEncoder(w).Encode("Course deleted successfully!")
+	json.NewEncoder(w).Encode("Course Not Found!")
 }
