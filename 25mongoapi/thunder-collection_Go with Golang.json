@@ -1,0 +1,97 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Go with Golang",
+    "dateExported": "2023-03-30T06:02:11.805Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "a37dd9ed-047e-43c8-9761-f874496f9f89",
+            "name": "Netflix",
+            "containerId": "",
+            "created": "2023-03-30T05:33:09.075Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "15ea97fb-05ca-4e24-80a2-dfa28557a571",
+            "colId": "bd8f2969-a918-4bd1-b2bf-6cf9cd94b72f",
+            "containerId": "a37dd9ed-047e-43c8-9761-f874496f9f89",
+            "name": "Get All Movies",
+            "url": "http://localhost:4000/api/movies",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-03-30T05:33:23.653Z",
+            "modified": "2023-03-30T05:34:47.366Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7417fd25-568f-4310-bcee-b0527edab096",
+            "colId": "bd8f2969-a918-4bd1-b2bf-6cf9cd94b72f",
+            "containerId": "a37dd9ed-047e-43c8-9761-f874496f9f89",
+            "name": "Post Movie",
+            "url": "http://localhost:4000/api/movie",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-03-30T05:35:02.376Z",
+            "modified": "2023-03-30T05:41:52.629Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"movie\":\"Antman\",\n  \"watched\": false\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f8f391e8-3798-402c-9c1d-f296f717868a",
+            "colId": "bd8f2969-a918-4bd1-b2bf-6cf9cd94b72f",
+            "containerId": "a37dd9ed-047e-43c8-9761-f874496f9f89",
+            "name": "Update Watch",
+            "url": "http://localhost:4000/api/movie/64252008fd2d3445f2799792",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-03-30T05:38:32.062Z",
+            "modified": "2023-03-30T05:39:35.582Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"movie\":\"KGF\",\n  \"watched\": true\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c6ff27ed-9adc-4fe5-98f6-b6d2c3e051cb",
+            "colId": "bd8f2969-a918-4bd1-b2bf-6cf9cd94b72f",
+            "containerId": "a37dd9ed-047e-43c8-9761-f874496f9f89",
+            "name": "Delete movie",
+            "url": "http://localhost:4000/api/movie/64251ff8fd2d3445f2799791",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-03-30T05:40:25.862Z",
+            "modified": "2023-03-30T05:41:11.967Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7bb5f94e-f2ef-4bce-aad8-c6643d85229b",
+            "colId": "bd8f2969-a918-4bd1-b2bf-6cf9cd94b72f",
+            "containerId": "a37dd9ed-047e-43c8-9761-f874496f9f89",
+            "name": "Delete All Movies",
+            "url": "http://localhost:4000/api/deleteallmovie",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-03-30T05:42:41.192Z",
+            "modified": "2023-03-30T05:43:20.615Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

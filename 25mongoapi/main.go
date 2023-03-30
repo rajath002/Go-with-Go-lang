@@ -16,5 +16,4 @@ func main() {
 
 	log.Fatal(http.ListenAndServe(":4000", r))
 	fmt.Println("Listening at port 4000")
-	//mongodb+srv://admin:<password>@cluster-demo-project.hahillw.mongodb.net/?retryWrites=true&w=majority
 }
